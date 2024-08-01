@@ -1,23 +1,24 @@
 // lib/widgets/app_bar_title.dart
 import 'package:flutter/material.dart';
 import 'package:my_app/styles/colors.dart';
-import '../styles/dimensions.dart';
+import 'package:my_app/styles/dimensions.dart';
 
 class AppBarTitle extends StatelessWidget {
-  final double ? fontSize;
-  const AppBarTitle({super.key, this.fontSize});
+  final double? fontSize;
+  final String? text;
+
+  const AppBarTitle({super.key, this.fontSize, this.text});
 
   @override
   Widget build(BuildContext context) {
     AppDimensions.init(context);
 
     return Text(
-      'Trending',
+      text ?? 'Trending',
       style: TextStyle(
         fontFamily: 'Roboto',
-        fontSize: fontSize?? AppDimensions.fontSize20,
+        fontSize: fontSize ?? AppDimensions.fontSize20,
         fontWeight: FontWeight.w700,
-        height: 23.44 / 20, // line-height / font-size
         color: black,
       ),
     );

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/screens/home_screen/home_screen.dart';
-import 'package:my_app/screens/movie_list_screen/movie_list_screen.dart';
-import 'package:my_app/screens/movie_screen/movie_screens.dart';
-import 'package:my_app/screens/trending_list_screen/trending_list_screen.dart';
+import 'package:my_app/screens/movie_grid_list_screen/movie_list_screen.dart';
 import 'package:my_app/styles/colors.dart';
 
 import 'screens/search_screen/search_screen.dart';
@@ -19,9 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const MyHomePage(),
         '/home': (context) => const HomeScreen(),
-        '/movies': (context) =>const MovieScreen(movie: null,),
         '/movieList': (context) =>  const MovieListScreen(),
-        '/trending': (context) => const TrendingListScreen(),
         '/search': (context) => const SearchScreen(),
       },
     );

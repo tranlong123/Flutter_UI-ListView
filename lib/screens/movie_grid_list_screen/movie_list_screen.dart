@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/models/movie_response.dart';
-import 'package:my_app/screens/movie_list_screen/movie_grid_list.dart';
+import 'package:my_app/widgets/movie_grid_list.dart';
 import 'package:my_app/services/movie_service.dart';
 import 'package:my_app/services/movies_list_provider.dart';
 import 'package:my_app/styles/colors.dart';
@@ -31,6 +31,7 @@ class MovieListScreenState extends State<MovieListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const AppBarTitle(),
+        scrolledUnderElevation: 0,
         backgroundColor: bgColor,
         systemOverlayStyle:
             SystemUiOverlayStyle.dark, // Đặt statusBarIconBrightness ở đây
