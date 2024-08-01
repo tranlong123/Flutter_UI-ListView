@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     AppDimensions.init(context);
     return SafeArea(
       child: Scaffold(
@@ -34,10 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: bgColor,
             child: Column(
               children: [
-                MoviesListProvider(
-                  futureMovies: futureMovies,
-                  childBuilder: (movies) => HomeTop(movies: movies),
-                ),
+                const HomeTop(),
                 SizedBox(
                   height: AppDimensions.sizedBox14,
                 ),

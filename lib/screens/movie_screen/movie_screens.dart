@@ -1,42 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/models/movie.dart';
-import 'package:my_app/screens/movie_screen/may_be_like_list.dart';
-import 'package:my_app/screens/movie_screen/may_be_like_text.dart';
-import 'package:my_app/screens/movie_screen/movie_description.dart';
-import 'package:my_app/screens/movie_screen/movie_poster.dart';
-import 'package:my_app/styles/colors.dart';
-import 'package:my_app/styles/dimensions.dart';
-import 'package:my_app/widgets/start_vote.dart';
+
 
 class MovieScreen extends StatelessWidget {
-  final Movie movie;
+  final Movie? movie;
 
-  const MovieScreen({
-    super.key,
-    required this.movie,
-  });
+  const MovieScreen({super.key, this.movie});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: bgColor,
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              MoviePoster(
-                  background: movie.backdropPath, image: movie.posterPath),
-              Padding(
-                padding: EdgeInsets.only(left: AppDimensions.sizedBox16),
-                child: StartVote(vote: movie.voteAverage),
-              ),
-              MovieDescription(movie: movie),
-              SizedBox(height: AppDimensions.sizedBox45),
-              const MayBeLikeText(),
-              const MayBeLikeList(),
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(movie!.title),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.network(
+              movie!.posterPath,
+              width: 100,
+              height: 160,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              movie!.title,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Text('Release Date: ${movie?.releaseDate}'),
+            const SizedBox(height: 8),
+            Text(movie!.overview),
+          ],
         ),
       ),
     );
